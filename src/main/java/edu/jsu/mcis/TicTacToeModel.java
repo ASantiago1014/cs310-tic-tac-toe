@@ -94,6 +94,8 @@ public class TicTacToeModel {
            empty! */
         
         /* INSERT YOUR CODE HERE */
+        /* if (isValidSquare(row,col) && !isSquareMarked(row,col) then grid[row][col] = players mark [ask if you have to do 
+        separate ifs for isXTurn or not Xturn]*/
 
         return false; /* remove this line! */
         
@@ -104,6 +106,7 @@ public class TicTacToeModel {
         /* Return true if specified location is within grid bounds */
         
         /* INSERT YOUR CODE HERE */
+        /* if (row is between 0 and width && col is between 0 and width) return true*/
 
         return false; /* remove this line! */
         
@@ -114,6 +117,7 @@ public class TicTacToeModel {
         /* Return true if square at specified location is marked */
         
         /* INSERT YOUR CODE HERE */
+        /* if (grid[row][col] != EMPTY) then return true*/
 
         return false; /* remove this line! */
             
