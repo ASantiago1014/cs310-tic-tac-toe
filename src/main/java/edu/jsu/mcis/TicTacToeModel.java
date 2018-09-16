@@ -96,6 +96,12 @@ public class TicTacToeModel {
         /* INSERT YOUR CODE HERE */
         /* if (isValidSquare(row,col) && !isSquareMarked(row,col) then grid[row][col] = players mark [ask if you have to do 
         separate ifs for isXTurn or not Xturn]*/
+        if (xTurn && isValidSquare(row,col) && !isSquareMarked(row,col)) {
+            grid[row][col] = X;
+        }
+        else if (!xTurn && isValidSquare(row,col) && !isSquareMarked(row,col)) {
+            grid[row][col] = O;
+        }
 
         return false; /* remove this line! */
         
@@ -106,12 +112,13 @@ public class TicTacToeModel {
         /* Return true if specified location is within grid bounds */
         
         /* INSERT YOUR CODE HERE */
+        boolean result = false;
         /* if (row is between 0 and width && col is between 0 and width) return true*/
         if (row >= 0 && row < width && col >=0 && col < width) {
-            return true;
+            result = true;
         }
          /* remove this line! */
-        
+        return result;
     }
 	
     private boolean isSquareMarked(int row, int col) {
@@ -119,13 +126,14 @@ public class TicTacToeModel {
         /* Return true if square at specified location is marked */
         
         /* INSERT YOUR CODE HERE */
+        boolean result = false;
+        
         /* if (grid[row][col] != EMPTY) then return true*/
         if (grid[row][col] != EMPTY) {
-            return true;
+            result = true;
         }
-
-         /* remove this line! */
-            
+         /* remove this line! */  
+        return result;
     }
 	
     public Mark getMark(int row, int col) {
@@ -133,9 +141,10 @@ public class TicTacToeModel {
         /* Return mark from the square at the specified location */
         
         /* INSERT YOUR CODE HERE */
+        Mark mark = grid[row][col];
         
-
-        return null; /* remove this line! */
+        return mark;
+        /* remove this line! */
             
     }
 	
