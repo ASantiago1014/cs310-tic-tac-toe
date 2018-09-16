@@ -107,8 +107,10 @@ public class TicTacToeModel {
         
         /* INSERT YOUR CODE HERE */
         /* if (row is between 0 and width && col is between 0 and width) return true*/
-
-        return false; /* remove this line! */
+        if (row >= 0 && row < width && col >=0 && col < width) {
+            return true;
+        }
+         /* remove this line! */
         
     }
 	
@@ -118,8 +120,11 @@ public class TicTacToeModel {
         
         /* INSERT YOUR CODE HERE */
         /* if (grid[row][col] != EMPTY) then return true*/
+        if (grid[row][col] != EMPTY) {
+            return true;
+        }
 
-        return false; /* remove this line! */
+         /* remove this line! */
             
     }
 	
@@ -128,6 +133,7 @@ public class TicTacToeModel {
         /* Return mark from the square at the specified location */
         
         /* INSERT YOUR CODE HERE */
+        
 
         return null; /* remove this line! */
             
