@@ -81,7 +81,7 @@ public class TicTacToeModel {
         /* INSERT YOUR CODE HERE */
         for (int i = 0; i < width - 1; ++i) {
             for (int j = 0; j < width - 1; ++j) {
-                grid[i][j] = EMPTY;
+                grid[i][j] = Mark.EMPTY;
             }
         }
         
@@ -97,11 +97,11 @@ public class TicTacToeModel {
         /* if (isValidSquare(row,col) && !isSquareMarked(row,col) then grid[row][col] = players mark */
         boolean result = false;
         if (xTurn && isValidSquare(row,col) && !isSquareMarked(row,col)) {
-            grid[row][col] = X;
+            grid[row][col] = Mark.X;
             result = true;
         }
         else if (!xTurn && isValidSquare(row,col) && !isSquareMarked(row,col)) {
-            grid[row][col] = O;
+            grid[row][col] = Mark.O;
             result = true;
         }
 
@@ -131,7 +131,7 @@ public class TicTacToeModel {
         boolean result = false;
         
         /* if (grid[row][col] != EMPTY) then return true*/
-        if (grid[row][col] != EMPTY) {
+        if (grid[row][col] != Mark.EMPTY) {
             result = true;
         }
          /* remove this line! */  
@@ -167,16 +167,20 @@ public class TicTacToeModel {
            winner */
         
         /* INSERT YOUR CODE HERE */
+        int countRow = 0;
+        
+        int countCol = 0;
+        
         boolean win = false;
         
-        for (int i = 0; i < width; ++i) {
+     /*   for (int i = 0; i < width; ++i) {
             
             for (int j = 0; j < width; ++j) {
                 
-                
+                if (grid[i][j] == mark)
             }
                     
-        }	
+        } */	
 
         return false; /* remove this line! */
 
