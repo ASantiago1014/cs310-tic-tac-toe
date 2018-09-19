@@ -17,11 +17,27 @@ public class TicTacToeView {
         /* Print the board to the console (see examples) */
         
         /* INSERT YOUR CODE HERE */
-        for (int i = 0; i < model.getWidth(); ++i) {
-            System.out.println(i);
-        }
-        System.out.println();
+        System.out.print("\t");
         
+        for (int i = 0; i < model.getWidth(); ++i) {
+			
+            System.out.print(i);
+			
+        }
+		
+        System.out.println();
+		
+        for (int r = 0; r < model.getWidth(); ++r) {
+            
+            System.out.print(r + " ");
+            
+            for (int c = 0; c < model.getWidth(); ++c) {
+                
+                System.out.print(model.getMark(r,c));
+                
+            }
+            
+        }
         
 
     }
@@ -48,9 +64,7 @@ public class TicTacToeView {
         /* Display an error if input is invalid (see examples) */
 
         /* INSERT YOUR CODE HERE */
-        if (model.isValidSquare == false) {
-            System.out.println("That is not an acceptable input");
-        }
+        System.out.println("That is not an acceptable input");
 
     }
 

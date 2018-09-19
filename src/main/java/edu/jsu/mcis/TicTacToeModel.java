@@ -94,8 +94,7 @@ public class TicTacToeModel {
            empty! */
         
         /* INSERT YOUR CODE HERE */
-        /* if (isValidSquare(row,col) && !isSquareMarked(row,col) then grid[row][col] = players mark [ask if you have to do 
-        separate ifs for isXTurn or not Xturn]*/
+        /* if (isValidSquare(row,col) && !isSquareMarked(row,col) then grid[row][col] = players mark */
         boolean result = false;
         if (xTurn && isValidSquare(row,col) && !isSquareMarked(row,col)) {
             grid[row][col] = X;
@@ -147,7 +146,6 @@ public class TicTacToeModel {
         Mark mark = grid[row][col];
         
         return mark;
-        /* remove this line! */
             
     }
 	
@@ -169,16 +167,16 @@ public class TicTacToeModel {
            winner */
         
         /* INSERT YOUR CODE HERE */
-        int countRow = 0;
+        boolean win = false;
         
-        int countCol = 0;
-        
-        boolean result = false;
-        /* Iterate through the rows */
         for (int i = 0; i < width; ++i) {
             
-            if (grid[])
-        }
+            for (int j = 0; j < width; ++j) {
+                
+                
+            }
+                    
+        }	
 
         return false; /* remove this line! */
 
