@@ -17,28 +17,28 @@ public class TicTacToeView {
         /* Print the board to the console (see examples) */
         
         /* INSERT YOUR CODE HERE */
-        System.out.print("\t");
         
-        for (int i = 0; i < model.getWidth(); ++i) {
-			
-            System.out.print(i);
-			
-        }
-		
-        System.out.println();
-		
-        for (int r = 0; r < model.getWidth(); ++r) {
+        StringBuilder output = new StringBuilder();
+        
+        int width = model.getWidth();
+        
+        output.append("\n\n ");
+        
+        for (int row = 0; row < width; ++row) {
             
-            System.out.print(r + " ");
+            output.append(row).append(" ");
             
-            for (int c = 0; c < model.getWidth(); ++c) {
+            for (int col = 0; col < width; col++) {
                 
-                System.out.print(model.getMark(r,c));
+                output.append(model.getMark(row,col));
                 
             }
             
+            output.append("\n");
+            
         }
         
+        System.out.println(output.toString());
 
     }
 
