@@ -79,8 +79,10 @@ public class TicTacToeModel {
         /* Initialize grid by filling every square with empty marks */
 
         /* INSERT YOUR CODE HERE */
-        for (int i = 0; i < width - 1; ++i) {
-            for (int j = 0; j < width - 1; ++j) {
+        for (int i = 0; i < width; ++i) {
+			
+            for (int j = 0; j < width; ++j) {
+				
                 grid[i][j] = Mark.EMPTY;
             }
         }
@@ -96,44 +98,59 @@ public class TicTacToeModel {
         /* INSERT YOUR CODE HERE */
         /* if (isValidSquare(row,col) && !isSquareMarked(row,col) then grid[row][col] = players mark */
         boolean result = false;
-        if (xTurn && isValidSquare(row,col) && !isSquareMarked(row,col)) {
+		
+        if ((isValidSquare(row,col) == true) && (isSquareMarked(row,col) == false) && (xTurn == true)) {
+			
             grid[row][col] = Mark.X;
+			xTurn = false;
             result = true;
         }
-        else if (!xTurn && isValidSquare(row,col) && !isSquareMarked(row,col)) {
+		
+        else if ((isValidSquare(row,col) == true) && (isSquareMarked(row,col) == false) && (xTurn == false)) {
+			
             grid[row][col] = Mark.O;
+			xTurn = true;
             result = true;
         }
+		else {
+			
+			result = false;
+		}
 
         return result;
         
     }
 	
-    private boolean isValidSquare(int row, int col) {
+    public boolean isValidSquare(int row, int col) {
         
         /* Return true if specified location is within grid bounds */
         
         /* INSERT YOUR CODE HERE */
         boolean result = false;
         /* if (row is between 0 and width && col is between 0 and width) return true*/
-        if (row >= 0 && row < width && col >=0 && col < width) {
+        if ((row >= 0 & row < width) && (col >=0 && col < width)) {
             result = true;
         }
          /* remove this line! */
         return result;
     }
 	
-    private boolean isSquareMarked(int row, int col) {
+    public boolean isSquareMarked(int row, int col) {
         
         /* Return true if square at specified location is marked */
         
         /* INSERT YOUR CODE HERE */
         boolean result = false;
         
-        /* if (grid[row][col] != EMPTY) then return true*/
-        if (grid[row][col] != Mark.EMPTY) {
-            result = true;
+        if ((grid[row][col] == Mark.EMPTY) && (isValidSquare(row,col) == true)) {
+			
+            result = false;
         }
+		
+		else {
+			
+			result = true;
+		}
          /* remove this line! */  
         return result;
     }
@@ -143,7 +160,12 @@ public class TicTacToeModel {
         /* Return mark from the square at the specified location */
         
         /* INSERT YOUR CODE HERE */
-        Mark mark = grid[row][col];
+		Mark mark = null;
+		
+		if (isValidSquare(row,col) == true) {
+			
+			mark = grid[row][col];
+		}
         
         return mark;
             
@@ -188,85 +210,101 @@ public class TicTacToeModel {
            winner */
         
         /* INSERT YOUR CODE HERE */
+		
+		int count = 0;
         boolean win = false;
         
         /* check rows for win */
-        for (int r = 0; r < width; ++r) {
+        for (int r = 0; r < width; ++r) 
+		{
             
-            if (grid[r][0] == mark) {
+            if (grid[r][0] == mark) 
+			{
                 
-                int c;
+                count = 0;
                 
-                for (c = 1; c < width; ++c) {
+                for (int c = 0; c < width; ++c) 
+				{
                     
-                    if (grid[r][c] != mark) {
+                    if (grid[r][c] == mark) {
                         
-                        break;
+                        count++;
                     }
-                    
-                }
                 
-                if (c == width) {
+					if (count == width) {
                     
-                    win = true;
-                }
-            }
+						win = true;
+					}
+				}
                     
+			}
         }
-        
         /* check columns for win*/
-        for (int c = 0; c < width; ++c) {
-            
-            if (grid[0][c] == mark) {
+        for (int r = 0; r < width; ++r) 
+		{
+			
+			if (grid[0][r] == mark) {
+			
+				count = 0;
                 
-                int r;
-                
-                for (r = 1; r < width; ++r) {
+				for (int c = 0; c < width; ++c) 
+				{
                     
-                    if (grid[c][r] != mark) {
+					if (grid[c][r] == mark) 
+					{
                         
-                        break;
-                    }
-                    
-                }
+						count++;
+					}
                 
-                if (r == width) {
+					if (count == width) 
+					{
                     
-                    win = true;
+						win = true;
                     
-                }
+					}
+				}
                 
-            }
+			}
             
         }
         
         /* check diagonals for win */
-        int i;
+        int countD = 0;
         
-        for (i = 0; i < width; ++i) {
+        for (int i = 0; i < width; ++i) {
             
-            if (grid[i][i] != mark) {
+            if (grid[i][i] == mark) {
                 
-                break;
+                countD++;
             }
+			else {
+				
+				continue;
+			}
             
         }
-        if (i == width) {
+        if (countD == width) {
             
             win = true;
             
         }
+		
+		int countDB = 0;
         
-        for (i = 0; i < width; ++i) {
+        for (int i = 0; i < width; ++i) {
             
-            if (grid[i][(width - 1) - i] != mark) {
+            if (grid[i][width - 1 - i] == mark) {
             
-                break;
+                countDB++;
             
             }
+			else {
+				
+				continue;
+			}
         }
         
-        if (i == width) {
+        if (countDB == width) {
             
             win = true;
             

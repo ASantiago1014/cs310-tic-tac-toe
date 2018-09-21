@@ -23,23 +23,31 @@ public class TicTacToeView {
         int width = model.getWidth();
         
         output.append("\n\n ");
+		output.append(" ");
         
         for (int row = 0; row < width; ++row) {
             
+            output.append(row);
+			
+		}
+		
+		output.append("\n\n");
+            
+        for (int row = 0; row < width; row++) {
+                
             output.append(row).append(" ");
-            
-            for (int col = 0; col < width; col++) {
+			
+			for (int col = 0; col < width; col++) {
+				
+				output.append(model.getMark(row,col));
+			}
+			
+			output.append("\n");
                 
-                output.append(model.getMark(row,col));
-                
-            }
-            
-            output.append("\n");
-            
         }
-        
+            
         System.out.println(output.toString());
-
+            
     }
 
     public void showNextMovePrompt() {

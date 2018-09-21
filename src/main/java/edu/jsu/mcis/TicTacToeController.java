@@ -36,10 +36,10 @@ public class TicTacToeController {
         
         /* INSERT YOUR CODE HERE */
         
-		row = keyboard.nextInt();
-		Col = keyboard.nextInt();
+		int row = keyboard.nextInt();
+		int col = keyboard.nextInt();
 		
-		if ((model.isValidSquare(row, col) == true) && (model.isSquareMarked()row,col) == false)) {
+		if ((model.isValidSquare(row, col) == true) && (model.isSquareMarked(row,col) == false)) {
 			
 			model.makeMark(row,col);
 		}
