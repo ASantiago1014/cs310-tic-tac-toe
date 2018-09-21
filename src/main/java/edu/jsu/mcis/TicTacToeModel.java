@@ -168,7 +168,7 @@ public class TicTacToeModel {
             result = Result.O;
         }
         
-        else if (isTie()) {
+        else if (isTie() == true) {
             
             result = Result.TIE;
         }

@@ -36,21 +36,19 @@ public class TicTacToeController {
         
         /* INSERT YOUR CODE HERE */
         
-	try {
-			
-            int row = Integer.parseInt(keyboard.next());
+		row = keyboard.nextInt();
+		Col = keyboard.nextInt();
 		
-            int col = Integer.parseInt(keyboard.next());
-		
-            model.makeMark(row,col);
+		if ((model.isValidSquare(row, col) == true) && (model.isSquareMarked()row,col) == false)) {
 			
-        }
-		
-	catch (Exception e) {
+			model.makeMark(row,col);
+		}
+		else {
 			
-            view.showInputError();
-			
-	}
+			view.showInputError();
+			row = keyboard.nextInt();
+			col = keyboard.nextInt();
+		}
         
     }
 
