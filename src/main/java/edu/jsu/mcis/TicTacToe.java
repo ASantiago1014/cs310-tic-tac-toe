@@ -40,7 +40,6 @@ public class TicTacToe extends JPanel {
         
         /* Game is over; show the final board and the winner */
 
-        view.showResult(model.getResult().toString());
 
     }
 

@@ -204,7 +204,7 @@ public class TicTacToeModel {
 
     }
 	
-    private boolean isMarkWin(Mark mark) {
+    public boolean isMarkWin(Mark mark) {
         
         /* Check the squares of the board to see if the specified mark is the
            winner */
